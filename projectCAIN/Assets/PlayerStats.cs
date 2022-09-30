@@ -67,7 +67,7 @@ public class PlayerStats : MonoBehaviour
     public void ResetLevel()
     {
         Time.timeScale = 1f;
-        FindObjectOfType<GameManager>().NextLevel();
+        //FindObjectOfType<GameManager>().NextLevel();
     }
 
     public void PauseLevel()
