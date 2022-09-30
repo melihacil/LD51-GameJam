@@ -20,12 +20,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speedV;
     [SerializeField] private float knockbackForce;
     //[Header("Movement Horizontal")]
-
-    [Header("Animator")]
-    [SerializeField] private Animator animator;
-
-
-
     //Horizontal movement
     private float targetSpeedH;
     private float speedDifferenceH;
@@ -34,6 +28,16 @@ public class PlayerMovement : MonoBehaviour
     private float targetSpeedV;
     private float speedDifferenceV;
     private float accelerationRateV;
+
+
+
+
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+
+
+
+   
     // Start is called before the first frame update
 
     [SerializeField] private GameObject gun;
@@ -51,20 +55,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool verticalDirection = false;
 
-    //Need to add roll 
-    //Bullets
-    //Enemies
-    //Tilemaps
-    //PowerUps
-    //Health system with donuts or other food
-    //Health will decrease with time so you'll need to eat food and avoid or kill enemies
     void Update()
     {
+        //Should add input manager to clear and improve systems
         inputH = Input.GetAxisRaw("Horizontal");
         inputV = Input.GetAxisRaw("Vertical");
 
 
-
+        /*
+         * Chunky animation states
+         * possibly going to use after animations
         //Animation states
         //Running up
         if (inputV > 0 || ((inputH > 0 || inputH < 0) && verticalDirection))
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetTrigger("IdleDown");
             }
         }
-
+        */
         
     }
 
