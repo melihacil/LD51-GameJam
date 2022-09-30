@@ -45,7 +45,7 @@ public class ObjectSpawner : MonoBehaviour
         //Will get the left of the cam and the right position of the camera
         //If player moves then move this code block to update + change objects to be children of the main camera
 
-        /*
+        
         minX = pos1.position.x;
         maxX = pos2.position.x;
         minY = pos1.position.y;
@@ -53,13 +53,26 @@ public class ObjectSpawner : MonoBehaviour
         minZ = pos1.position.z;
         maxZ = pos2.position.z;
 
-        */
+        
 
         //Instantiate(spawnEnemy, pos1.position, Quaternion.identity);
     }
 
     private void Update()
     {
+        if (!didSpawnEnemy)
+        {
+            Debug.Log("Spawning enemy");
+            didSpawnEnemy = true;
+            Invoke(nameof(SpawnEnemy), enemySpawnTime);
+            enemySpawnTime -= reduceTimers;
+            if (enemySpawnTime < minEnemyTimer)
+                enemySpawnTime = minEnemyTimer;
+        }
+
+
+
+
         /*
          * 
          * Will use here to spawn stuff
@@ -88,6 +101,7 @@ public class ObjectSpawner : MonoBehaviour
     private void ResetSpawn()
     {
         didSpawnFood=false;
+        didSpawnEnemy=false;
     }
     private void SpawnFood()
     {
