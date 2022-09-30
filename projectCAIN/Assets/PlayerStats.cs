@@ -45,14 +45,17 @@ public class PlayerStats : MonoBehaviour
         }
 
         damageUpTimer -= Time.deltaTime;
-        if (damageUpTimer <= 0 && damageVal < maxDamage)
+        //Damages player every fixed seconds
+        if (damageUpTimer <= 0)
         {
-            damageVal += 1;
+            if ( damageVal < maxDamage)
+                damageVal += 1;
             damageUpTimer = resetTimer;
+            health -= damageVal;
         }
-        health -= damageVal * Time.deltaTime;
+
         Debug.Log(health);
-        healthBar.value = health;
+        //healthBar.value = health;
 
         if (health <= 0)
         {
