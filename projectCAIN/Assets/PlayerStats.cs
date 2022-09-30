@@ -22,15 +22,15 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        DeathPanel.SetActive(false);
-        ResumePanel.SetActive(false);
+        //DeathPanel.SetActive(false);
+        //ResumePanel.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
     {
         maxHealth = health;
-        healthBar.maxValue = health;
-        healthBar.value = health;
+        //healthBar.maxValue = health;
+        //healthBar.value = health;
         resetTimer = damageUpTimer;
     }
 
@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel"))
         {
-            ResumePanel.SetActive(true);
+            //ResumePanel.SetActive(true);
             PauseLevel();
         }
 
@@ -50,15 +50,15 @@ public class PlayerStats : MonoBehaviour
             damageVal += 1;
             damageUpTimer = resetTimer;
         }
-         health -= damageVal * Time.deltaTime;
-        
+        health -= damageVal * Time.deltaTime;
+        Debug.Log(health);
         healthBar.value = health;
 
         if (health <= 0)
         {
             PauseLevel();
-            ResumePanel.SetActive(false);
-            DeathPanel.SetActive(true);
+            //ResumePanel.SetActive(false);
+            //DeathPanel.SetActive(true);
             //FindObjectOfType
             Debug.Log("Died");
         }
@@ -78,7 +78,7 @@ public class PlayerStats : MonoBehaviour
 
     public void ResumeLevel()
     {
-        ResumePanel?.SetActive(false);
+        //ResumePanel?.SetActive(false);
         Time.timeScale = 1f;
     }
 
