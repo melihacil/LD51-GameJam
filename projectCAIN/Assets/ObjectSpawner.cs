@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    [Header("Positions and Valus")]
+    [Header("Positions and Values")]
     [SerializeField] private Transform pos1;
     [SerializeField] private Transform pos2;
     [SerializeField] private float checkingRadius;
     [SerializeField] private float range;
     [SerializeField] private Transform playerPos;
+
     private float minX;
     private float maxX;
     private float minY;
@@ -35,12 +36,16 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Awake()
     {
-        FindObjectOfType<SoundManager>().PlaySource(0);
-        Time.timeScale = 0f;
-        Time.timeScale = 1f;
+        //FindObjectOfType<SoundManager>().PlaySource(0);
+        //Time.timeScale = 0f;
+        //Time.timeScale = 1f;
     }
     private void Start()
     {
+        //Will get the left of the cam and the right position of the camera
+        //If player moves then move this code block to update + change objects to be children of the main camera
+
+        /*
         minX = pos1.position.x;
         maxX = pos2.position.x;
         minY = pos1.position.y;
@@ -48,14 +53,16 @@ public class ObjectSpawner : MonoBehaviour
         minZ = pos1.position.z;
         maxZ = pos2.position.z;
 
+        */
 
-
-        Instantiate(spawnEnemy, pos1.position, Quaternion.identity);
+        //Instantiate(spawnEnemy, pos1.position, Quaternion.identity);
     }
 
     private void Update()
     {
-
+        /*
+         * 
+         * Will use here to spawn stuff
         if (!didSpawnEnemy)
         {
             Debug.Log("Spawning enemy");
@@ -75,6 +82,7 @@ public class ObjectSpawner : MonoBehaviour
             if (foodSpawnTime < minFoodTimer)
                 foodSpawnTime = minFoodTimer;
         }
+        */
     }
 
     private void ResetSpawn()
