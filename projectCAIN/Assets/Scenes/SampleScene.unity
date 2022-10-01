@@ -601,8 +601,8 @@ GameObject:
   - component: {fileID: 756678197}
   - component: {fileID: 756678196}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &788035827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1136,7 +1136,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1563186876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   health: 100
   damageVal: 23
   maxDamage: 23
-  DeathPanel: {fileID: 0}
+  DeathPanel: {fileID: 788035826}
   ResumePanel: {fileID: 0}
   healthBar: {fileID: 818747152}
   damageUpTimer: 3
