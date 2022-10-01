@@ -13,6 +13,9 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private GameObject DeathPanel;
     [SerializeField] private GameObject ResumePanel;
+    
+
+
 
     [SerializeField] private Slider healthBar;
 
@@ -29,8 +32,8 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         maxHealth = health;
-        //healthBar.maxValue = health;
-        //healthBar.value = health;
+        healthBar.maxValue = health;
+        healthBar.value = health;
         resetTimer = damageUpTimer;
     }
 
@@ -46,24 +49,26 @@ public class PlayerStats : MonoBehaviour
 
         damageUpTimer -= Time.deltaTime;
         //Damages player every fixed seconds
+        //Updates the slider accordingly
         if (damageUpTimer <= 0)
         {
             if ( damageVal < maxDamage)
                 damageVal += 1;
             damageUpTimer = resetTimer;
+            healthBar.value = health;
             health -= damageVal;
         }
 
-        Debug.Log(health);
-        //healthBar.value = health;
+        //Debug.Log(health);
+        
 
         if (health <= 0)
         {
             PauseLevel();
             //ResumePanel.SetActive(false);
-            //DeathPanel.SetActive(true);
+            DeathPanel.SetActive(true);
             //FindObjectOfType
-            Debug.Log("Died");
+            //Debug.Log("Died");
         }
     }
 
