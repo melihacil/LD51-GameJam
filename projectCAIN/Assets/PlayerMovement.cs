@@ -30,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private float accelerationRateV;
 
 
-
+    private bool playerForward = true;
+    private bool isFacingRight = true;
 
     [Header("Animator")]
     [SerializeField] private Animator animator;
@@ -61,49 +62,59 @@ public class PlayerMovement : MonoBehaviour
         inputH = Input.GetAxisRaw("Horizontal");
         inputV = Input.GetAxisRaw("Vertical");
 
-
-        /*
-         * Chunky animation states
-         * possibly going to use after animations
-        //Animation states
-        //Running up
-        if (inputV > 0 || ((inputH > 0 || inputH < 0) && verticalDirection))
+        //To get if player moving left or right and rotate towards to the movement direction
+        if (inputH > 0)
         {
-            
-            verticalDirection = true;
-            animator.SetTrigger("WalkUp");
-            animator.SetBool("WUp", true);
-            animator.SetBool("WDown", false);
-
+            isFacingRight = true;
         }
-        //Running down
-        else if (inputV < 0 || ((inputH > 0 || inputH < 0) && !verticalDirection))
+        else if (inputH < 0)
         {
-            
-            verticalDirection = false;
-            animator.SetBool("WUp", false);
-            animator.SetBool("WDown", true);
-            //animator.set
+            isFacingRight=false;
         }
-        //No input = 0 idle situation
-        else
-        {
-            if (verticalDirection)
+
+        SpriteTurnFunc();
+            /*
+             * Chunky animation states
+             * possibly going to use after animations
+            //Animation states
+            //Running up
+            if (inputV > 0 || ((inputH > 0 || inputH < 0) && verticalDirection))
             {
-                animator.SetBool("WUp", false);
+
+                verticalDirection = true;
+                animator.SetTrigger("WalkUp");
+                animator.SetBool("WUp", true);
                 animator.SetBool("WDown", false);
-                animator.SetTrigger("IdleUp");
+
             }
+            //Running down
+            else if (inputV < 0 || ((inputH > 0 || inputH < 0) && !verticalDirection))
+            {
+
+                verticalDirection = false;
+                animator.SetBool("WUp", false);
+                animator.SetBool("WDown", true);
+                //animator.set
+            }
+            //No input = 0 idle situation
             else
             {
-                animator.SetBool("WUp", false);
-                animator.SetBool("WDown", false);
-                animator.SetTrigger("IdleDown");
+                if (verticalDirection)
+                {
+                    animator.SetBool("WUp", false);
+                    animator.SetBool("WDown", false);
+                    animator.SetTrigger("IdleUp");
+                }
+                else
+                {
+                    animator.SetBool("WUp", false);
+                    animator.SetBool("WDown", false);
+                    animator.SetTrigger("IdleDown");
+                }
             }
+            */
+
         }
-        */
-        
-    }
 
     private void FixedUpdate()
     {
@@ -116,6 +127,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
    
+
+
+    private void SpriteTurnFunc()
+    {
+        //If the player is not facing towards movement then rotate it towards
+        if (isFacingRight != playerForward)
+        {
+            playerForward = isFacingRight;
+            transform.forward *= -1;
+        }
+    }
+
 
     private void MoveVertical()
     {
