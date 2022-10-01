@@ -109,4 +109,11 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("Ded");
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Enemy")
+        {
+            AddHealth(10);
+        }
+    }
 }
