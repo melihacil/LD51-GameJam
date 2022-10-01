@@ -21,18 +21,15 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-           //RaycastHit2D hit =  Physics2D.Raycast(transform.position, attackPos.position, 4f, LayerMask.GetMask("Enemy"));
+           //Attacking all the enemies in the radius
             Collider2D[] col = Physics2D.OverlapCircleAll(attackPos.position, attackRadius, LayerMask.GetMask("Enemy"));
             if (col != null)
             {
-                foreach(Collider2D col2 in col)
+                foreach (Collider2D col2 in col)
+                {
                     Debug.Log("Hit enemy = " + col2.gameObject.name);
-                /*
-                 * 
-                 * foreach(Collider2D hit in col)
-                 */
+                }
             }
-            //Debug.DrawRay(transform.position, attackPos.position, Color.red, 4.0f);
             
         }
         
