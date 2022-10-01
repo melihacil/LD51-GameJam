@@ -1062,6 +1062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0caff2f719314c47be2c6c5200a7d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPos: {fileID: 1563186873}
+  distanceBetween: 0
+  speed: 0
 --- !u!212 &1376966701
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1160,6 +1163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0caff2f719314c47be2c6c5200a7d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPos: {fileID: 1563186873}
+  distanceBetween: 0
+  speed: 0
 --- !u!212 &1466325718
 SpriteRenderer:
   m_ObjectHideFlags: 0
