@@ -7,13 +7,24 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     private Transform attackPos;
+
+    [SerializeField] 
+    GameObject sword;
+
     [SerializeField]
     private float attackRadius;
+
+    private PlayerAnims anim;
+
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = PlayerAnims.Instance;
     }
 
     // Update is called once per frame
@@ -22,14 +33,9 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
            //Attacking all the enemies in the radius
-            Collider2D[] col = Physics2D.OverlapCircleAll(attackPos.position, attackRadius, LayerMask.GetMask("Enemy"));
-            if (col != null)
-            {
-                foreach (Collider2D col2 in col)
-                {
-                    Debug.Log("Hit enemy = " + col2.gameObject.name);
-                }
-            }
+            //Collider2D[] col = Physics2D.OverlapCircleAll(attackPos.position, attackRadius, LayerMask.GetMask("Enemy"));
+            Instantiate(sword, attackPos.position, attackPos.rotation);
+
             
         }
     }
