@@ -21,7 +21,7 @@ public class Sword : MonoBehaviour
     //Will do the attack in here
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7)//LayerMask.GetMask("Enemy"))
+        if (collision.gameObject.layer == 7)
         {
             collision.gameObject.GetComponent<EnemyStats>().DamageEnemy();
             Debug.Log("Attacking enemy");

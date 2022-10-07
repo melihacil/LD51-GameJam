@@ -142,15 +142,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveVertical()
     {
+        //Get the target speed => -max or max
         targetSpeedV = inputV * maxSpeed;
-
-
+        //Get the speed difference
+        //Speed dif   ===>     force<==>movement
+        //to choose acceleration
         speedDifferenceV = targetSpeedV - rb.velocity.y;
 
+        // Choosing acceleration 
         accelerationRateV = (Mathf.Abs(speedDifferenceV) > 0.01f) ? acceleration : deceleration;
 
+        //Calculate the force needed to apply
         speedV = Mathf.Pow(Mathf.Abs(speedDifferenceV) * accelerationRateV, velocityPow) * Mathf.Sign(speedDifferenceV);
 
+        //Apply the force (Vertical movement on Y axis)
+        
         rb.AddForce(Vector2.up * speedV);
 
 
